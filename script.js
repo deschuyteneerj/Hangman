@@ -669,7 +669,6 @@ let canvas =  function(){
 };
 
 class HangmanParts {
-
     constructor(x, y, toX, toY, a=false) {
         this.x = x;
         this.y = y;
