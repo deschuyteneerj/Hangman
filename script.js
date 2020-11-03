@@ -611,13 +611,15 @@ document.querySelectorAll(".letter").forEach(button => {
         if (testArray != uniqueWrong.length) {
             //Decrement a try from maximum number of tries:
             numberOfTries--;
+            //Set the number of tries in the sentence on screen:
+            document.getElementById("triesLeft").innerHTML = "You have " + numberOfTries + " live(s)."
             //If the number of tries equals 0:
             if (numberOfTries <= 0) {
-                document.getElementsByClassName("resultOfGame")[0].innerHTML = "You loose ! The word was: " + randomWord;
+                document.getElementsByClassName("resultOfGame")[0].innerHTML = "You loose ! The word was: " + randomWord + ".";
             }
         }
 
-        // Draw the part of the body:
+        // Draw the part of the body depending the number of tries left:
         switch (numberOfTries) {
             case 9:ground.draw();
             break;
@@ -677,7 +679,6 @@ class HangmanParts {
             context.beginPath();
             context.arc(this.x, this.y, this.toX, this.toY, Math.PI*2, true);
             context.strokeStyle = "black";
-
             context.stroke();
         }
         else {
