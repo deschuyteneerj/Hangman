@@ -596,9 +596,11 @@ document.querySelectorAll(".letter").forEach(button => {
             arrayRightLetters.push(letterGuessed);
             //Create a no duplicate array to check for the win condition:
             uniqueRight = [...new Set(arrayRightLetters)];
+            //Show the array of letter guessed on screen:
+            document.getElementById("right").innerHTML = "You guessed the following letters: " + uniqueRight + "."
             //If both arrays are equal:
             if (uniqueRight.length + stockNonWordCharacter.length == [...new Set(arrayRandomWordSplit)].length) {
-                document.getElementsByClassName("resultOfGame")[0].innerHTML = "You win !";
+                document.getElementsByClassName("resultOfGame")[0].innerHTML = "You won !";
             }
         }
         else {
@@ -606,6 +608,8 @@ document.querySelectorAll(".letter").forEach(button => {
             arrayWrongLetters.push(letterGuessed);
             //Array of condition to loose the game:
             uniqueWrong = [...new Set(arrayWrongLetters)];
+            //Show the array of letter guessed on screen:
+            document.getElementById("wrong").innerHTML = "You tried the following letters: " + uniqueWrong + "."
         }
         //If both arrays are not equal:
         if (testArray != uniqueWrong.length) {
@@ -615,7 +619,7 @@ document.querySelectorAll(".letter").forEach(button => {
             document.getElementById("triesLeft").innerHTML = "You have " + numberOfTries + " live(s)."
             //If the number of tries equals 0:
             if (numberOfTries <= 0) {
-                document.getElementsByClassName("resultOfGame")[0].innerHTML = "You loose ! The word was: " + randomWord + ".";
+                document.getElementsByClassName("resultOfGame")[0].innerHTML = "You lost ! The word was: " + randomWord + ".";
             }
         }
 
